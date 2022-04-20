@@ -1,4 +1,4 @@
-import { useReducer, useState, useEffect } from "react";
+import { useReducer, useState } from "react";
 import CartContext from "./cart-context";
 
 const defaultCartState = {
@@ -84,7 +84,6 @@ const CartProvider = (props) => {
   const [fetchingError, setFetchingError] = useState();
 
   const mealsMenu = () => {
-    // useEffect(() => {
     setIsLoading(true);
     setFetchingError(null);
     const fetchMeals = async () => {
@@ -120,7 +119,6 @@ const CartProvider = (props) => {
       }
     };
     httpFetchError();
-    // }, []);
   };
 
   const cartContext = {

@@ -1,7 +1,12 @@
+import React from "react";
 import styles from "./CartItem.module.css";
 
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
+
+  const quantityCondition = props.amount >= 5 || props.amount <= 0;
+
+  const quantityStyle = quantityCondition ? styles.disabled : styles.amount;
 
   return (
     <li className={styles["cart-item"]}>
@@ -13,8 +18,11 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles.actions}>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
+        <button onClick={props.onRemove}>-</button>
+        <button onClick={props.onAdd} className={quantityStyle}>
+          +
+        </button>
+        {quantityCondition && <h4 className={styles.warning}>1-5 only</h4>}
       </div>
     </li>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./MealItemForm.module.css";
-import CartContext from "../../../store/cart-context";
 const MealItemForm = (props) => {
   const [amountChange, setAmountChange] = useState("1");
   const [amountIsValid, setAmountIsValid] = useState(true);
@@ -8,10 +7,6 @@ const MealItemForm = (props) => {
   const amountChangeHandler = (event) => {
     setAmountChange(event.target.value);
   };
-  // const resetAmountForm = () => {
-  //   setAmountChange("1");
-  //   setAmountIsValid(true);
-  // };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -27,7 +22,6 @@ const MealItemForm = (props) => {
       setAmountIsValid(true);
     }
     props.onAddToCart(enteredAmountNumber);
-    // resetAmountForm();
   };
   return (
     <form className={styles.form} onSubmit={submitHandler}>

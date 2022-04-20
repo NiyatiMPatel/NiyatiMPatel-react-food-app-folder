@@ -74,11 +74,12 @@ const CartModal = (props) => {
     </ul>
   );
 
-  const hideOrderCancel = (
+  const orderCancelButtons = (
     <div className={styles.actions}>
       <button className={styles["button--alt"]} onClick={props.onHideCartModal}>
         Close
       </button>
+
       {hasItem && (
         <button className={styles.button} onClick={orderHandler}>
           Order
@@ -87,6 +88,8 @@ const CartModal = (props) => {
     </div>
   );
 
+  const formcondition = showCheckoutForm && hasItem;
+
   const cartContent = (
     <Fragment>
       {cartItems}
@@ -94,13 +97,14 @@ const CartModal = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {showCheckoutForm && (
+      {!formcondition && orderCancelButtons}
+
+      {formcondition && (
         <CheckoutForm
           onSubmitOrder={submitOrderHandler}
           onClick={props.onHideCartModal}
         />
       )}
-      {!showCheckoutForm && hideOrderCancel}
     </Fragment>
   );
 

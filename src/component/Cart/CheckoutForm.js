@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CheckoutForm.module.css";
 import useInput from "../../hooks/user-input";
 

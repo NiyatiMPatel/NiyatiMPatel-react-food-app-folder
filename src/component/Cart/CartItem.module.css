@@ -32,6 +32,15 @@
   color: #363636;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
+.warning {
+  color: #641e03;
+  text-align: center;
+}
+
 .actions {
   display: flex;
   flex-direction: column;
