@@ -128,9 +128,7 @@ const CartProvider = (props) => {
     setIsLoading(true);
     setFetchingError(null);
     const fetchMeals = async () => {
-      const response = await fetch(
-        "https://react-food-order-app-9056c-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json"
-      );
+      const response = await fetch(process.env.REACT_APP_MEALS_URL);
 
       if (!response.ok) {
         throw new Error("Something went wrong!");

@@ -29,8 +29,7 @@ const CartModal = (props) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
-        "https://react-food-order-app-9056c-default-rtdb.asia-southeast1.firebasedatabase.app/mealsOrder.json",
+      const response = await fetch(process.env.REACT_APP_ORDERS_URL,
         {
           method: "POST",
           body: JSON.stringify({
